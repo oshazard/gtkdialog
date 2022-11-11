@@ -35,6 +35,7 @@
 */
 
 #include <gtk/gtk.h>
+#include <glib/gprintf.h>
 
 #include "config.h"
 #include "gtkdialog.h"
@@ -87,6 +88,8 @@
 #undef TOOLTIPS
 
 extern gboolean option_no_warning;
+extern void push_widget(GtkWidget * widget, int widgettype);
+int instruction_execute(instruction command);
 
 instruction *program = NULL;
 int instruction_counter = 0;		/* The first available memory cell */
@@ -323,8 +326,7 @@ void print_command(instruction command)
     fflush(stdout);
 }
 
-void
-print_program()
+void print_program()
 {
 	gint pc;
 	instruction command;
@@ -580,8 +582,7 @@ finalize:
 }
 
 
-int 
-instruction_execute(instruction command)
+int instruction_execute(instruction command)
 {
 	GList *element;
 	token Token;
@@ -911,9 +912,11 @@ gboolean widget_moved(GtkWidget *widget,
 		//gtk_widget_set_usize(window, 
 		//		configure->width -20,
 		//		configure->height);
+#if HAVE_GTK==2
 		gtk_widget_set_uposition(GTK_WIDGET(window), 
 				configure->x,
 				configure->y);
+#endif
 	}
 	
 	fflush(stderr);

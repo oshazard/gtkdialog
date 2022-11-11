@@ -36,6 +36,7 @@
 #include "attributes.h"
 #include "variables.h"
 #include "tag_attributes.h"
+#include "gtkdialog_parser.h"
 
 extern gchar *option_include_file;
 
