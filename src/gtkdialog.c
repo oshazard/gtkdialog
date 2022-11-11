@@ -337,7 +337,7 @@ get_program_from_file(char *name)
 	 * required because the #! is not included in the language.
 	 */
 	program_src = NULL;
-	result = getline(&program_src, &tmp, sourcefile);
+	result = getline(&program_src,(size_t*)&tmp, sourcefile);
 	if (program_src[0] != '#') {
 		fclose(sourcefile);
 		sourcefile = fopen(name, "r");
