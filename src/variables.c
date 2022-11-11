@@ -59,6 +59,7 @@
 #endif
 
 extern gboolean option_no_warning;
+extern int yywarning(char *c);
 
 /* Local function prototypes */
 #ifdef DEBUG

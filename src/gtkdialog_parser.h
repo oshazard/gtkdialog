@@ -385,3 +385,8 @@ typedef union YYSTYPE
 extern YYSTYPE gtkdialog_lval;
 
 
+extern int gtkdialog_error(char *c);
+extern void run_program(void);
+extern void print_program();
+extern int gtkdialog_lex (void);
+extern int gtkdialog_parse (void);

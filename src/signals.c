@@ -40,6 +40,8 @@
 //#define DEBUG_CONTENT
 //#define DEBUG_TRANSITS
 
+extern gboolean variables_is_avail_by_name(const char *name);
+
 /* Local variables */
 char *condexpr[] = {
 	"active_is_true(", "active_is_false(", "active_is_true (", "active_is_false (",
